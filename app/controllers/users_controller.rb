@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @title = "Edit user"
   end
     
-      def update
+  def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:success] = "Profile updated."
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-      
+  
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
@@ -79,4 +79,5 @@ class UsersController < ApplicationController
     def admin_user
       redirect_to(root_path) unless current_user.admin?
     end
+  end
 end
